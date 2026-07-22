@@ -10,6 +10,9 @@ The platform combines expense tracking, budget monitoring, investment analysis, 
 
 ---
 
+## LIve Demo 
+   Open FinanceCanvas (https://financecanvas-muzwrnbqnkjr3x79sznyi2.streamlit.app/ )
+
 ## Project Overview
 
 Managing expenses, investments and financial goals through separate spreadsheets can make financial analysis difficult.
