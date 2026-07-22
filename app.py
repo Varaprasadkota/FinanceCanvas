@@ -262,111 +262,157 @@ st.divider()
 st.subheader("FinanceCanvas Features")
 
 
+# Style homepage feature buttons like large cards.
+st.markdown(
+    """
+    <style>
+    div[data-testid="stButton"] > button {
+        min-height: 155px;
+        white-space: normal;
+        text-align: left;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 24px;
+        border: 1px solid #DCE3EC;
+        border-radius: 16px;
+        background-color: #FFFFFF;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+        font-size: 1rem;
+        line-height: 1.6;
+        transition:
+            transform 0.15s ease,
+            box-shadow 0.15s ease,
+            border-color 0.15s ease;
+    }
+
+    div[data-testid="stButton"] > button:hover {
+        border-color: #2563EB;
+        box-shadow: 0 10px 24px rgba(37, 99, 235, 0.13);
+        transform: translateY(-3px);
+    }
+
+    div[data-testid="stButton"] > button:focus {
+        border-color: #2563EB;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
+def feature_navigation_button(
+    label,
+    destination,
+    key,
+):
+    """
+    Display a feature card and open its associated page.
+    """
+
+    if st.button(
+        label=label,
+        key=key,
+        use_container_width=True,
+    ):
+        st.switch_page(destination)
+
+
+# First row of feature cards.
 feature_column1, feature_column2, feature_column3 = (
     st.columns(3)
 )
 
 
 with feature_column1:
-    st.markdown(
-        """
-        <div class="feature-card">
-            <h4>📊 Spending Intelligence</h4>
-            <p>
-                Record, filter and analyse income and
-                expenses using Python, Pandas and SQLite.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    feature_navigation_button(
+        label=(
+            "📊 **Spending Intelligence** — "
+            "Record, filter and analyse income and "
+            "expenses using Python, Pandas and SQLite."
+        ),
+        destination="pages/2_Transaction_History.py",
+        key="open_spending_intelligence",
     )
 
 
 with feature_column2:
-    st.markdown(
-        """
-        <div class="feature-card">
-            <h4>🎯 Budget Management</h4>
-            <p>
-                Compare planned budgets against actual
-                spending and identify overspending risks.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    feature_navigation_button(
+        label=(
+            "🎯 **Budget Management** — "
+            "Compare planned budgets against actual "
+            "spending and identify overspending risks."
+        ),
+        destination="pages/3_Budget_Tracker.py",
+        key="open_budget_management",
     )
 
 
 with feature_column3:
-    st.markdown(
-        """
-        <div class="feature-card">
-            <h4>📈 Investment Analytics</h4>
-            <p>
-                Monitor portfolio value, returns,
-                allocation and unrealised performance.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    feature_navigation_button(
+        label=(
+            "📈 **Investment Analytics** — "
+            "Monitor portfolio value, returns, asset "
+            "allocation and unrealised performance."
+        ),
+        destination="pages/5_Investment_Portfolio.py",
+        key="open_investment_analytics",
     )
 
 
 st.write("")
 
 
+# Second row of feature cards.
 feature_column4, feature_column5, feature_column6 = (
     st.columns(3)
 )
 
 
 with feature_column4:
-    st.markdown(
-        """
-        <div class="feature-card">
-            <h4>📥 Data Automation</h4>
-            <p>
-                Clean, validate and import CSV bank
-                statements with duplicate detection.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    feature_navigation_button(
+        label=(
+            "📥 **Data Automation** — "
+            "Extract, validate and import PDF bank "
+            "statements with duplicate detection."
+        ),
+        destination="pages/4_Import_Statement.py",
+        key="open_data_automation",
     )
 
 
 with feature_column5:
-    st.markdown(
-        """
-        <div class="feature-card">
-            <h4>🩺 Financial Health</h4>
-            <p>
-                Calculate net worth, savings rate,
-                emergency coverage and debt indicators.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    feature_navigation_button(
+        label=(
+            "🩺 **Financial Health** — "
+            "Calculate net worth, savings rate, emergency "
+            "coverage and debt indicators."
+        ),
+        destination="pages/6_Financial_Health.py",
+        key="open_financial_health",
     )
 
 
 with feature_column6:
-    st.markdown(
-        """
-        <div class="feature-card">
-            <h4>🔮 Forecasting</h4>
-            <p>
-                Forecast future expenses and generate
-                automated financial observations.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    feature_navigation_button(
+        label=(
+            "🔮 **Forecasting** — "
+            "Forecast future expenses and generate "
+            "automated financial observations."
+        ),
+        destination="pages/7_Forecast_and_Insights.py",
+        key="open_forecasting",
     )
 
 
 st.divider()
 
+
+st.caption(
+    "FinanceCanvas is an educational financial analytics "
+    "portfolio project. It does not provide regulated "
+    "financial advice."
+)
 
 st.caption(
     "FinanceCanvas is an educational financial analytics "
